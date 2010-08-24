@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/images">
+    <file>Resources/tortoise_mainIcon.png</file>
+    <file>Resources/南通医学院.bmp</file>
+    <file>Resources/config.png</file>
+    <file>Resources/query.png</file>
+    <file>Resources/browser.png</file>
+    <file>Resources/领取1.png</file>
+    <file>Resources/购买2.png</file>
+  </qresource>
+</RCC>
