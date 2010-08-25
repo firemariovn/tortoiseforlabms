@@ -3,7 +3,8 @@
 #include "MySQLModule.h"
 #include <QSqlQuery>
 #include <QSqlError>
-
+#include "FileSystem.h"
+#include "excel.h"
 
 QueryPage::QueryPage(QWidget *parent)
 	: QWidget(parent)
@@ -18,6 +19,11 @@ QueryPage::QueryPage(QWidget *parent)
     connect (ui.m_buytimeEnd, SIGNAL(dateTimeChanged (const QDateTime&)), this, SLOT(changeBuytimeEnd(const QDateTime&)));
     connect (ui.m_gettimeStart, SIGNAL(dateTimeChanged (const QDateTime&)), this, SLOT(changeGettimeStart(const QDateTime&)));
     connect (ui.m_gettimeEnd, SIGNAL(dateTimeChanged (const QDateTime&)), this, SLOT(changeGettimeEnd (const QDateTime&)));
+
+    connect (ui.m_exportPeople, SIGNAL(clicked()), this, SLOT(exportPeopleToExcel()));
+    connect (ui.m_exportProName, SIGNAL(clicked()), this, SLOT(exportProNameToExcel()));
+    connect (ui.m_exportBuyTime, SIGNAL(clicked()), this, SLOT(exportBuyTimeToExcel()));
+    connect (ui.m_exportGetTime, SIGNAL(clicked()), this, SLOT(exportGetTimeToExcel()));
 
     ui.m_buytimeEnd->setDateTime(QDateTime::currentDateTime());
     ui.m_gettimeEnd->setDateTime(QDateTime::currentDateTime());
@@ -90,6 +96,12 @@ void QueryPage::changeDetailGetPeople(int index){
         QMessageBox::information(this,"Error",model->lastError().text());
         return;
     }
+    //设置表头
+    QList <const char*> heads;
+    heads << "物品名称" << "代理商" << "领取时间" << "领取人" << "领取数量" << "领取备注" << "购买时间";
+    for (int i = 0; i < heads.count(); i++){
+        model->setHeaderData(i, Qt::Horizontal, QString::fromLocal8Bit(heads[i]));
+    }
     ui.m_getPeople_tableView->setModel(model);
 
 }
@@ -105,6 +117,13 @@ void QueryPage::changeDetailGetProName(int index){
     if ( ! model->select() ) {
         QMessageBox::information(this,"Error",model->lastError().text());
         return;
+    }
+    //设置表头
+    QList <const char*> heads;
+    heads << "物品名称" << "代理商" << "购买时间" << "物品品牌" << "物品容量" << "物品浓度" << "购买数量"
+        << "原始单价" << "折扣单价" << "购买备注";
+    for (int i = 0; i < heads.count(); i++){
+        model->setHeaderData(i, Qt::Horizontal, QString::fromLocal8Bit(heads[i]));
     }
     ui.m_getProName_tableView->setModel(model);
 
@@ -125,12 +144,20 @@ void QueryPage::changeGettimeStart(const QDateTime& dateTime){
     QString endTime = ui.m_gettimeEnd->dateTime().toString(Qt::ISODate);
     startTime.replace(QString("T"), QString(" "));
     endTime.replace(QString("T"), QString(" "));
+
     model->setTable("buytable");
     model->setFilter(QObject::tr("GetTime > '%1' and GetTime < '%2'").arg(startTime, endTime)); //根据物品名字
     if ( ! model->select() ) {
         QMessageBox::information(this,"Error",model->lastError().text());
         return;
     }
+    //设置表头
+    QList <const char*> heads;
+    heads << "物品名称" << "代理商" << "领取时间" << "领取人" << "领取数量" << "领取备注" << "购买时间";
+    for (int i = 0; i < heads.count(); i++){
+        model->setHeaderData(i, Qt::Horizontal, QString::fromLocal8Bit(heads[i]));
+    }
+
     ui.m_gettime_tableView->setModel(model);
 }
 
@@ -154,6 +181,13 @@ void QueryPage::changeGettimeEnd(const QDateTime& dateTime){
         QMessageBox::information(this,"Error",model->lastError().text());
         return;
     }
+    //设置表头
+    QList <const char*> heads;
+    heads << "物品名称" << "代理商" << "领取时间" << "领取人" << "领取数量" << "领取备注" << "购买时间";
+    for (int i = 0; i < heads.count(); i++){
+        model->setHeaderData(i, Qt::Horizontal, QString::fromLocal8Bit(heads[i]));
+    }
+
     ui.m_gettime_tableView->setModel(model);
 
 }
@@ -179,6 +213,13 @@ void QueryPage::changeBuytimeStart(const QDateTime& dateTime){
         QMessageBox::information(this,"Error",model->lastError().text());
         return;
     }
+    QList <const char*> heads;
+    heads << "物品名称" << "代理商" << "购买时间" << "物品品牌" << "物品容量" << "物品浓度" << "购买数量"
+        << "原始单价" << "折扣单价" << "购买备注";
+    for (int i = 0; i < heads.count(); i++){
+        model->setHeaderData(i, Qt::Horizontal, QString::fromLocal8Bit(heads[i]));
+    }
+
     ui.m_buytime_tableView->setModel(model);
 }
 
@@ -203,5 +244,48 @@ void QueryPage::changeBuytimeEnd(const QDateTime& dateTime){
         QMessageBox::information(this,"Error",model->lastError().text());
         return;
     }
+    QList <const char*> heads;
+    heads << "物品名称" << "代理商" << "购买时间" << "物品品牌" << "物品容量" << "物品浓度" << "购买数量"
+        << "原始单价" << "折扣单价" << "购买备注";
+    for (int i = 0; i < heads.count(); i++){
+        model->setHeaderData(i, Qt::Horizontal, QString::fromLocal8Bit(heads[i]));
+    }
+
     ui.m_buytime_tableView->setModel(model);
+}
+
+
+void QueryPage::exportPeopleToExcel(){
+    QString dir = SFileSystem::getInstance().getTempDirPath();
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), dir, tr("MircoSoft Excel (*.xls)"));
+    Excel test;
+    test.tableViewToExcel(ui.m_getPeople_tableView, fileName);
+}
+
+void QueryPage::exportProNameToExcel(){
+    QString dir = SFileSystem::getInstance().getTempDirPath();
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), dir, tr("MircoSoft Excel (*.xls)"));
+    Excel test;
+    test.tableViewToExcel(ui.m_getProName_tableView, fileName);
+
+}
+
+void QueryPage::exportGetTimeToExcel(){
+    QString dir = SFileSystem::getInstance().getTempDirPath();
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), dir, tr("MircoSoft Excel (*.xls)"));
+    Excel test;
+    test.tableViewToExcel(ui.m_gettime_tableView, fileName);
+
+}
+
+void QueryPage::exportBuyTimeToExcel(){
+    QString dir = SFileSystem::getInstance().getTempDirPath();
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), dir, tr("MircoSoft Excel (*.xls)"));
+    Excel test;
+    test.tableViewToExcel(ui.m_buytime_tableView, fileName);
+
 }

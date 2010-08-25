@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'QueryPage.h'
 **
-** Created: Mon Aug 23 23:46:01 2010
+** Created: Tue Aug 24 18:13:00 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_QueryPage[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,6 +38,10 @@ static const uint qt_meta_data_QueryPage[] = {
      121,   10,   10,   10, 0x0a,
      149,   10,   10,   10, 0x0a,
      179,   10,   10,   10, 0x0a,
+     207,   10,   10,   10, 0x0a,
+     229,   10,   10,   10, 0x0a,
+     252,   10,   10,   10, 0x0a,
+     275,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -49,6 +53,8 @@ static const char qt_meta_stringdata_QueryPage[] = {
     "changeBuytimeEnd(QDateTime)\0"
     "changeGettimeStart(QDateTime)\0"
     "changeGettimeEnd(QDateTime)\0"
+    "exportPeopleToExcel()\0exportProNameToExcel()\0"
+    "exportBuyTimeToExcel()\0exportGetTimeToExcel()\0"
 };
 
 const QMetaObject QueryPage::staticMetaObject = {
@@ -87,9 +93,13 @@ int QueryPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 4: changeBuytimeEnd((*reinterpret_cast< const QDateTime(*)>(_a[1]))); break;
         case 5: changeGettimeStart((*reinterpret_cast< const QDateTime(*)>(_a[1]))); break;
         case 6: changeGettimeEnd((*reinterpret_cast< const QDateTime(*)>(_a[1]))); break;
+        case 7: exportPeopleToExcel(); break;
+        case 8: exportProNameToExcel(); break;
+        case 9: exportBuyTimeToExcel(); break;
+        case 10: exportGetTimeToExcel(); break;
         default: ;
         }
-        _id -= 7;
+        _id -= 11;
     }
     return _id;
 }

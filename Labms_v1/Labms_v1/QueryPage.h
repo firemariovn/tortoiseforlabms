@@ -24,6 +24,11 @@ public slots:
     void changeGettimeStart (const QDateTime&);
     void changeGettimeEnd (const QDateTime&);
 
+    void exportPeopleToExcel ();
+    void exportProNameToExcel ();
+    void exportBuyTimeToExcel ();
+    void exportGetTimeToExcel ();
+
 private:
 
 private:

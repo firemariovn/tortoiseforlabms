@@ -9,6 +9,7 @@
 #include <QIcon>
 #include "Pages.h"
 #include "MySQLInfoDlg.h"
+#include "AboutDlg.h"
 
 Labms_v1::Labms_v1(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
@@ -45,17 +46,29 @@ Labms_v1::~Labms_v1()
 
 }
 void Labms_v1::createToolbar(){
-	QAction* mysqlInfo = new QAction (QIcon(":/images/Resources/browser.png"), tr("MySQL Info"), this);
-	mysqlInfo->setStatusTip (QString::fromLocal8Bit("MySQL信息浏览"));
-	mysqlInfo->setToolTip (tr("MySQL infomation browser"));
+	QAction* mysqlInfo = new QAction (QIcon(":/images/Resources/serviceInfo.ico"), tr("MySQL Info"), this);
+	mysqlInfo->setStatusTip (QString::fromLocal8Bit("MySQL服务器信息浏览"));
+	mysqlInfo->setToolTip (tr("MySQL Server Information"));
 	connect(mysqlInfo, SIGNAL(triggered()), this, SLOT(showMySQLInfoDlg()));
 	ui.m_toolBar->addAction (mysqlInfo);
+
+    QAction* aboutInfo = new QAction (QIcon(":/images/Resources/about.ico"), tr("About"), this);
+    aboutInfo->setStatusTip (QString::fromLocal8Bit("关于这份软件"));
+    aboutInfo->setToolTip (tr("About..."));
+    connect(aboutInfo, SIGNAL(triggered()), this, SLOT(showAboutDlg()));
+    ui.m_toolBar->addAction (aboutInfo);
 
 }
 void Labms_v1::showMySQLInfoDlg (){
 	MySQLInfoDlg* infoDlg = new MySQLInfoDlg;
 	infoDlg->show ();
 }
+
+void Labms_v1::showAboutDlg (){
+    AboutDlg* aboutDlg = new AboutDlg;
+    aboutDlg->show ();
+}
+
 void Labms_v1::createIcons(){
 	QListWidgetItem *updateButton = new QListWidgetItem(contentsWidget);
 	updateButton->setIcon(QIcon(":/images/Resources/browser.png"));

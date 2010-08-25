@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Labms_v1.h'
 **
-** Created: Mon Aug 23 23:46:02 2010
+** Created: Wed Aug 25 17:57:54 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_Labms_v1[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,6 +33,7 @@ static const uint qt_meta_data_Labms_v1[] = {
  // slots: signature, parameters, type, tag, flags
       27,   10,    9,    9, 0x0a,
       73,    9,    9,    9, 0x0a,
+      92,    9,    9,    9, 0x0a,
 
        0        // eod
 };
@@ -40,7 +41,7 @@ static const uint qt_meta_data_Labms_v1[] = {
 static const char qt_meta_stringdata_Labms_v1[] = {
     "Labms_v1\0\0current,previous\0"
     "changePage(QListWidgetItem*,QListWidgetItem*)\0"
-    "showMySQLInfoDlg()\0"
+    "showMySQLInfoDlg()\0showAboutDlg()\0"
 };
 
 const QMetaObject Labms_v1::staticMetaObject = {
@@ -74,9 +75,10 @@ int Labms_v1::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         switch (_id) {
         case 0: changePage((*reinterpret_cast< QListWidgetItem*(*)>(_a[1])),(*reinterpret_cast< QListWidgetItem*(*)>(_a[2]))); break;
         case 1: showMySQLInfoDlg(); break;
+        case 2: showAboutDlg(); break;
         default: ;
         }
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
