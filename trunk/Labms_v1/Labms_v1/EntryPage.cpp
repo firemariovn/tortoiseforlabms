@@ -16,8 +16,8 @@ EntryPage::EntryPage(QWidget *parent)
 
     init();
 
-	connect (ui.m_confirm, SIGNAL(clicked()), this, SLOT(entryConfirm()));
-    connect (ui.m_reset, SIGNAL(clicked()), this, SLOT(entryClear()));
+	connect (ui.m_buy_confirm, SIGNAL(clicked()), this, SLOT(entryBuyConfirm()));
+    connect (ui.m_buy_reset, SIGNAL(clicked()), this, SLOT(entryBuyReset()));
 
     //textEdited
       //  editTextChanged
@@ -37,18 +37,6 @@ EntryPage::~EntryPage()
 }
 
 void EntryPage::init(){
-	//ui.m_buyDate->setDate(QDateTime::currentDateTime().toString());
-    ui.m_buyDate->setDateTime (QDateTime::currentDateTime());
-	ui.m_ProName->setText("");
-	ui.m_ProBrand->setText("");
-	ui.m_Agent->setText("");
- 	ui.m_Volume->lineEdit ()->setText("");
- 	ui.m_BuyNum->lineEdit ()->setText("");
- 	ui.m_OrigUprice->lineEdit ()->setText("");
- 	ui.m_RebUprice->lineEdit ()->setText("");
-	ui.m_Concen->setText("");
-	ui.m_BuyPS->setText("");
-
 
     // 领取窗口
     m_data_completer = new QCompleter (this);
@@ -56,18 +44,31 @@ void EntryPage::init(){
     ui.m_get_agent->setCompleter(m_data_completer);
     ui.m_get_proName->setCompleter (m_data_completer);
     
+    entryBuyReset();
+    entryGetReset();
+}
+
+
+void EntryPage::entryBuyReset(){
+    ui.m_buyDate->setDateTime (QDateTime::currentDateTime());
+    ui.m_ProName->setText("");
+    ui.m_ProBrand->setText("");
+    ui.m_Agent->setText("");
+    ui.m_Volume->lineEdit ()->setText("");
+    ui.m_BuyNum->lineEdit ()->setText("");
+    ui.m_OrigUprice->lineEdit ()->setText("");
+    ui.m_RebUprice->lineEdit ()->setText("");
+    ui.m_Concen->setText("");
+    ui.m_BuyPS->setText("");
+}
+
+void EntryPage::entryGetReset(){
     ui.m_get_time->setDateTime(QDateTime::currentDateTime());
     ui.m_get_people->setText ("");
     ui.m_get_ps->setText ("");
     ui.m_get_num->setText ("");
-
 }
-
-void EntryPage::entryClear(){
-	init ();
-}
-
-void EntryPage::entryConfirm(){
+void EntryPage::entryBuyConfirm(){
 
     if (ui.m_ProName->text().isEmpty() == true
         || ui.m_Agent->text().isEmpty() == true
@@ -105,7 +106,12 @@ void EntryPage::entryConfirm(){
 	if (sql.exec(queryStr) != true)
 	{
 		QMessageBox::warning(this,tr("Warning"), sql.lastError().text(),QMessageBox::Yes);
+        ui.m_tipBuyLabel->setText (QString::fromLocal8Bit("Tip: 添加购买记录失败"));
 	}
+    else{
+        ui.m_tipBuyLabel->setText (QString::fromLocal8Bit("Tip: 添加购买记录成功"));
+        entryBuyReset();
+    }
 	sql.clear();
 }
 
@@ -172,18 +178,13 @@ void EntryPage::entryGetProNameSlot(const QString& str){
     ui.m_get_proName->setFocus();
 }
 
-void EntryPage::entryGetClear(){
-    init ();
-}
-
-
-
 void EntryPage::entryGetConfirm(){
     if (ui.m_get_people->text().isEmpty() == true
         || ui.m_get_proName->text().isEmpty() == true
         || ui.m_get_agent->text().isEmpty() == true
         || ui.m_get_num->text().isEmpty() == true){
            QMessageBox::warning (this, tr("Warning"), QString::fromLocal8Bit("请填完打 * 的所有项目"), QMessageBox::Yes);
+           return;
     }
 
     QString proName = addQuotes(ui.m_get_proName->text());
@@ -208,8 +209,13 @@ void EntryPage::entryGetConfirm(){
     if (sql.exec(queryStr) != true)
     {
         QMessageBox::warning(this,tr("Warning"), sql.lastError().text(),QMessageBox::Yes);
+        ui.m_tipGetLabel->setText(QString::fromLocal8Bit("Tip: 添加领取记录失败"));
+        
     }
-
+    else{
+        ui.m_tipGetLabel->setText(QString::fromLocal8Bit("Tip: 添加领取记录成功"));
+        entryGetReset();
+    }
     sql.clear();
 }
 

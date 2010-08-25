@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MySQLModule.h'
 **
-** Created: Mon Aug 23 23:46:01 2010
+** Created: Wed Aug 25 17:57:54 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!

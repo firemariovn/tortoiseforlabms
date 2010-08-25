@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'EntryPage.ui'
 **
-** Created: Mon Aug 23 20:25:34 2010
+** Created: Wed Aug 25 17:55:48 2010
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,7 +16,6 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
 #include <QtGui/QDateTimeEdit>
-#include <QtGui/QFormLayout>
 #include <QtGui/QGridLayout>
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
@@ -36,54 +35,55 @@ class Ui_EntryPageClass
 {
 public:
     QGridLayout *gridLayout_2;
-    QTabWidget *tabWidget;
+    QTabWidget *tableWidget;
     QWidget *tab;
+    QLabel *m_tipBuyLabel;
     QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
     QGridLayout *gridLayout_3;
-    QFormLayout *formLayout;
+    QHBoxLayout *horizontalLayout;
     QLabel *label_3;
     QDateTimeEdit *m_buyDate;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_4;
     QLineEdit *m_ProName;
-    QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_6;
     QComboBox *m_BuyNum;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_7;
-    QComboBox *m_OrigUprice;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *label_11;
-    QComboBox *m_RebUprice;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *label_12;
-    QLineEdit *m_Concen;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_8;
     QLineEdit *m_ProBrand;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *label_7;
+    QComboBox *m_OrigUprice;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_5;
     QLineEdit *m_Agent;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_11;
+    QComboBox *m_RebUprice;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_9;
     QComboBox *m_Volume;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *label_12;
+    QLineEdit *m_Concen;
     QGridLayout *gridLayout;
     QLabel *label_10;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer;
     QTextEdit *m_BuyPS;
-    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QLabel *label;
     QSpacerItem *verticalSpacer_3;
-    QPushButton *m_reset;
-    QPushButton *m_confirm;
+    QPushButton *m_buy_reset;
+    QPushButton *m_buy_confirm;
     QWidget *tab_2;
-    QLabel *label_2;
-    QPushButton *m_get_reset;
-    QPushButton *m_get_confirm;
+    QLabel *m_tipGetLabel;
+    QWidget *layoutWidget1;
+    QHBoxLayout *horizontalLayout_11;
+    QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox;
     QLabel *label_15;
     QLabel *label_16;
@@ -100,53 +100,92 @@ public:
     QLineEdit *m_get_num;
     QLabel *label_18;
     QTextEdit *m_get_ps;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *label_2;
+    QSpacerItem *verticalSpacer_4;
+    QPushButton *m_get_reset;
+    QPushButton *m_get_confirm;
 
     void setupUi(QWidget *EntryPageClass)
     {
         if (EntryPageClass->objectName().isEmpty())
             EntryPageClass->setObjectName(QString::fromUtf8("EntryPageClass"));
-        EntryPageClass->resize(470, 386);
+        EntryPageClass->resize(499, 436);
         gridLayout_2 = new QGridLayout(EntryPageClass);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        tabWidget = new QTabWidget(EntryPageClass);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setTabPosition(QTabWidget::North);
-        tabWidget->setTabShape(QTabWidget::Triangular);
+        tableWidget = new QTabWidget(EntryPageClass);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+        tableWidget->setTabPosition(QTabWidget::North);
+        tableWidget->setTabShape(QTabWidget::Rounded);
+        tableWidget->setElideMode(Qt::ElideRight);
+        tableWidget->setUsesScrollButtons(true);
+        tableWidget->setDocumentMode(false);
+        tableWidget->setTabsClosable(false);
+        tableWidget->setMovable(false);
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tab->sizePolicy().hasHeightForWidth());
+        tab->setSizePolicy(sizePolicy);
+        m_tipBuyLabel = new QLabel(tab);
+        m_tipBuyLabel->setObjectName(QString::fromUtf8("m_tipBuyLabel"));
+        m_tipBuyLabel->setGeometry(QRect(2, 0, 450, 24));
+        sizePolicy.setHeightForWidth(m_tipBuyLabel->sizePolicy().hasHeightForWidth());
+        m_tipBuyLabel->setSizePolicy(sizePolicy);
+        m_tipBuyLabel->setMinimumSize(QSize(450, 24));
+        m_tipBuyLabel->setMaximumSize(QSize(450, 24));
+        m_tipBuyLabel->setSizeIncrement(QSize(0, 0));
+        QFont font;
+        font.setPointSize(12);
+        m_tipBuyLabel->setFont(font);
+        m_tipBuyLabel->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);\n"
+"background-color: rgb(0, 0, 0);"));
+        m_tipBuyLabel->setTextFormat(Qt::AutoText);
         layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(118, 10, 319, 257));
-        verticalLayout_2 = new QVBoxLayout(layoutWidget);
+        layoutWidget->setGeometry(QRect(0, 30, 451, 341));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         gridLayout_3 = new QGridLayout();
         gridLayout_3->setSpacing(6);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        formLayout = new QFormLayout();
-        formLayout->setSpacing(6);
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
+        label_3->setSizePolicy(sizePolicy1);
         label_3->setMinimumSize(QSize(65, 20));
         label_3->setMaximumSize(QSize(65, 20));
         label_3->setTextFormat(Qt::RichText);
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label_3);
+        horizontalLayout->addWidget(label_3);
 
         m_buyDate = new QDateTimeEdit(layoutWidget);
         m_buyDate->setObjectName(QString::fromUtf8("m_buyDate"));
+        sizePolicy1.setHeightForWidth(m_buyDate->sizePolicy().hasHeightForWidth());
+        m_buyDate->setSizePolicy(sizePolicy1);
         m_buyDate->setMinimumSize(QSize(130, 22));
         m_buyDate->setMaximumSize(QSize(130, 22));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, m_buyDate);
+        horizontalLayout->addWidget(m_buyDate);
 
 
-        gridLayout_3->addLayout(formLayout, 0, 0, 1, 2);
+        gridLayout_3->addLayout(horizontalLayout, 0, 0, 1, 2);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
@@ -170,9 +209,6 @@ public:
 
         gridLayout_3->addLayout(horizontalLayout_3, 1, 0, 1, 1);
 
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
@@ -193,75 +229,7 @@ public:
         horizontalLayout_7->addWidget(m_BuyNum);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_7);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        label_7 = new QLabel(layoutWidget);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setMinimumSize(QSize(65, 16));
-        label_7->setMaximumSize(QSize(65, 16));
-        label_7->setTextFormat(Qt::RichText);
-
-        horizontalLayout_8->addWidget(label_7);
-
-        m_OrigUprice = new QComboBox(layoutWidget);
-        m_OrigUprice->setObjectName(QString::fromUtf8("m_OrigUprice"));
-        m_OrigUprice->setMinimumSize(QSize(80, 20));
-        m_OrigUprice->setMaximumSize(QSize(80, 20));
-        m_OrigUprice->setEditable(true);
-
-        horizontalLayout_8->addWidget(m_OrigUprice);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_8);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setSpacing(6);
-        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        label_11 = new QLabel(layoutWidget);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setMinimumSize(QSize(65, 16));
-        label_11->setMaximumSize(QSize(65, 16));
-        label_11->setTextFormat(Qt::RichText);
-
-        horizontalLayout_9->addWidget(label_11);
-
-        m_RebUprice = new QComboBox(layoutWidget);
-        m_RebUprice->setObjectName(QString::fromUtf8("m_RebUprice"));
-        m_RebUprice->setMinimumSize(QSize(80, 20));
-        m_RebUprice->setMaximumSize(QSize(80, 20));
-        m_RebUprice->setEditable(true);
-
-        horizontalLayout_9->addWidget(m_RebUprice);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_9);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setSpacing(6);
-        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        label_12 = new QLabel(layoutWidget);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setMinimumSize(QSize(65, 16));
-        label_12->setMaximumSize(QSize(65, 16));
-        label_12->setTextFormat(Qt::RichText);
-
-        horizontalLayout_10->addWidget(label_12);
-
-        m_Concen = new QLineEdit(layoutWidget);
-        m_Concen->setObjectName(QString::fromUtf8("m_Concen"));
-        m_Concen->setMinimumSize(QSize(80, 20));
-        m_Concen->setMaximumSize(QSize(80, 20));
-
-        horizontalLayout_10->addWidget(m_Concen);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_10);
-
-
-        gridLayout_3->addLayout(verticalLayout_3, 1, 1, 4, 1);
+        gridLayout_3->addLayout(horizontalLayout_7, 1, 1, 1, 1);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
@@ -284,6 +252,28 @@ public:
 
         gridLayout_3->addLayout(horizontalLayout_4, 2, 0, 1, 1);
 
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        label_7 = new QLabel(layoutWidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMinimumSize(QSize(65, 16));
+        label_7->setMaximumSize(QSize(65, 16));
+        label_7->setTextFormat(Qt::RichText);
+
+        horizontalLayout_8->addWidget(label_7);
+
+        m_OrigUprice = new QComboBox(layoutWidget);
+        m_OrigUprice->setObjectName(QString::fromUtf8("m_OrigUprice"));
+        m_OrigUprice->setMinimumSize(QSize(80, 20));
+        m_OrigUprice->setMaximumSize(QSize(80, 20));
+        m_OrigUprice->setEditable(true);
+
+        horizontalLayout_8->addWidget(m_OrigUprice);
+
+
+        gridLayout_3->addLayout(horizontalLayout_8, 2, 1, 1, 1);
+
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
@@ -304,6 +294,28 @@ public:
 
 
         gridLayout_3->addLayout(horizontalLayout_5, 3, 0, 1, 1);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setSpacing(6);
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        label_11 = new QLabel(layoutWidget);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setMinimumSize(QSize(65, 16));
+        label_11->setMaximumSize(QSize(65, 16));
+        label_11->setTextFormat(Qt::RichText);
+
+        horizontalLayout_9->addWidget(label_11);
+
+        m_RebUprice = new QComboBox(layoutWidget);
+        m_RebUprice->setObjectName(QString::fromUtf8("m_RebUprice"));
+        m_RebUprice->setMinimumSize(QSize(80, 20));
+        m_RebUprice->setMaximumSize(QSize(80, 20));
+        m_RebUprice->setEditable(true);
+
+        horizontalLayout_9->addWidget(m_RebUprice);
+
+
+        gridLayout_3->addLayout(horizontalLayout_9, 3, 1, 1, 1);
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setSpacing(6);
@@ -326,6 +338,27 @@ public:
 
 
         gridLayout_3->addLayout(horizontalLayout_6, 4, 0, 1, 1);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setSpacing(6);
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        label_12 = new QLabel(layoutWidget);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_12->setMinimumSize(QSize(65, 16));
+        label_12->setMaximumSize(QSize(65, 16));
+        label_12->setTextFormat(Qt::RichText);
+
+        horizontalLayout_10->addWidget(label_12);
+
+        m_Concen = new QLineEdit(layoutWidget);
+        m_Concen->setObjectName(QString::fromUtf8("m_Concen"));
+        m_Concen->setMinimumSize(QSize(80, 20));
+        m_Concen->setMaximumSize(QSize(80, 20));
+
+        horizontalLayout_10->addWidget(m_Concen);
+
+
+        gridLayout_3->addLayout(horizontalLayout_10, 4, 1, 1, 1);
 
 
         verticalLayout_2->addLayout(gridLayout_3);
@@ -351,9 +384,6 @@ public:
 
         m_BuyPS = new QTextEdit(layoutWidget);
         m_BuyPS->setObjectName(QString::fromUtf8("m_BuyPS"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(m_BuyPS->sizePolicy().hasHeightForWidth());
         m_BuyPS->setSizePolicy(sizePolicy);
         m_BuyPS->setMinimumSize(QSize(230, 81));
@@ -364,16 +394,16 @@ public:
 
         verticalLayout_2->addLayout(gridLayout);
 
-        layoutWidget1 = new QWidget(tab);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 10, 102, 251));
-        verticalLayout = new QVBoxLayout(layoutWidget1);
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
+
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(layoutWidget1);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
+        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy);
         label->setMinimumSize(QSize(100, 100));
         label->setMaximumSize(QSize(100, 100));
         label->setPixmap(QPixmap(QString::fromUtf8(":/images/Resources/\350\264\255\344\271\2602.png")));
@@ -381,37 +411,57 @@ public:
 
         verticalLayout->addWidget(label);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_3 = new QSpacerItem(20, 90, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_3);
 
-        m_reset = new QPushButton(layoutWidget1);
-        m_reset->setObjectName(QString::fromUtf8("m_reset"));
+        m_buy_reset = new QPushButton(layoutWidget);
+        m_buy_reset->setObjectName(QString::fromUtf8("m_buy_reset"));
+        sizePolicy.setHeightForWidth(m_buy_reset->sizePolicy().hasHeightForWidth());
+        m_buy_reset->setSizePolicy(sizePolicy);
+        m_buy_reset->setMinimumSize(QSize(100, 30));
+        m_buy_reset->setMaximumSize(QSize(100, 30));
 
-        verticalLayout->addWidget(m_reset);
+        verticalLayout->addWidget(m_buy_reset);
 
-        m_confirm = new QPushButton(layoutWidget1);
-        m_confirm->setObjectName(QString::fromUtf8("m_confirm"));
+        m_buy_confirm = new QPushButton(layoutWidget);
+        m_buy_confirm->setObjectName(QString::fromUtf8("m_buy_confirm"));
+        sizePolicy.setHeightForWidth(m_buy_confirm->sizePolicy().hasHeightForWidth());
+        m_buy_confirm->setSizePolicy(sizePolicy);
+        m_buy_confirm->setMinimumSize(QSize(100, 30));
+        m_buy_confirm->setMaximumSize(QSize(100, 30));
 
-        verticalLayout->addWidget(m_confirm);
+        verticalLayout->addWidget(m_buy_confirm);
 
-        tabWidget->addTab(tab, QString());
+
+        horizontalLayout_2->addLayout(verticalLayout);
+
+        tableWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        label_2 = new QLabel(tab_2);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(0, 20, 100, 100));
-        label_2->setPixmap(QPixmap(QString::fromUtf8(":/images/Resources/\351\242\206\345\217\2261.png")));
-        label_2->setScaledContents(true);
-        m_get_reset = new QPushButton(tab_2);
-        m_get_reset->setObjectName(QString::fromUtf8("m_get_reset"));
-        m_get_reset->setGeometry(QRect(20, 220, 75, 23));
-        m_get_confirm = new QPushButton(tab_2);
-        m_get_confirm->setObjectName(QString::fromUtf8("m_get_confirm"));
-        m_get_confirm->setGeometry(QRect(20, 260, 75, 23));
-        groupBox = new QGroupBox(tab_2);
+        m_tipGetLabel = new QLabel(tab_2);
+        m_tipGetLabel->setObjectName(QString::fromUtf8("m_tipGetLabel"));
+        m_tipGetLabel->setGeometry(QRect(4, 0, 420, 24));
+        m_tipGetLabel->setMinimumSize(QSize(420, 24));
+        m_tipGetLabel->setMaximumSize(QSize(420, 24));
+        m_tipGetLabel->setFont(font);
+        m_tipGetLabel->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 0, 0);"));
+        layoutWidget1 = new QWidget(tab_2);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(2, 31, 421, 351));
+        horizontalLayout_11 = new QHBoxLayout(layoutWidget1);
+        horizontalLayout_11->setSpacing(6);
+        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
+        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        groupBox = new QGroupBox(layoutWidget1);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(130, 10, 301, 111));
+        groupBox->setMinimumSize(QSize(301, 111));
+        groupBox->setMaximumSize(QSize(301, 111));
         label_15 = new QLabel(groupBox);
         label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setGeometry(QRect(30, 20, 65, 20));
@@ -439,9 +489,13 @@ public:
         m_get_buytime = new QComboBox(groupBox);
         m_get_buytime->setObjectName(QString::fromUtf8("m_get_buytime"));
         m_get_buytime->setGeometry(QRect(120, 77, 151, 22));
-        groupBox_2 = new QGroupBox(tab_2);
+
+        verticalLayout_5->addWidget(groupBox);
+
+        groupBox_2 = new QGroupBox(layoutWidget1);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(130, 130, 301, 211));
+        groupBox_2->setMinimumSize(QSize(301, 211));
+        groupBox_2->setMaximumSize(QSize(301, 211));
         label_13 = new QLabel(groupBox_2);
         label_13->setObjectName(QString::fromUtf8("label_13"));
         label_13->setGeometry(QRect(0, 20, 65, 20));
@@ -478,14 +532,53 @@ public:
         m_get_ps = new QTextEdit(groupBox_2);
         m_get_ps->setObjectName(QString::fromUtf8("m_get_ps"));
         m_get_ps->setGeometry(QRect(80, 110, 191, 91));
-        tabWidget->addTab(tab_2, QString());
 
-        gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
+        verticalLayout_5->addWidget(groupBox_2);
+
+
+        horizontalLayout_11->addLayout(verticalLayout_5);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        label_2 = new QLabel(layoutWidget1);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMinimumSize(QSize(100, 100));
+        label_2->setMaximumSize(QSize(100, 100));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/images/Resources/\351\242\206\345\217\2261.png")));
+        label_2->setScaledContents(true);
+
+        verticalLayout_6->addWidget(label_2);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_6->addItem(verticalSpacer_4);
+
+        m_get_reset = new QPushButton(layoutWidget1);
+        m_get_reset->setObjectName(QString::fromUtf8("m_get_reset"));
+        m_get_reset->setMinimumSize(QSize(100, 30));
+        m_get_reset->setMaximumSize(QSize(100, 30));
+
+        verticalLayout_6->addWidget(m_get_reset);
+
+        m_get_confirm = new QPushButton(layoutWidget1);
+        m_get_confirm->setObjectName(QString::fromUtf8("m_get_confirm"));
+        m_get_confirm->setMinimumSize(QSize(100, 30));
+        m_get_confirm->setMaximumSize(QSize(100, 30));
+
+        verticalLayout_6->addWidget(m_get_confirm);
+
+
+        horizontalLayout_11->addLayout(verticalLayout_6);
+
+        tableWidget->addTab(tab_2, QString());
+
+        gridLayout_2->addWidget(tableWidget, 0, 0, 1, 1);
 
 
         retranslateUi(EntryPageClass);
 
-        tabWidget->setCurrentIndex(1);
+        tableWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(EntryPageClass);
@@ -494,6 +587,7 @@ public:
     void retranslateUi(QWidget *EntryPageClass)
     {
         EntryPageClass->setWindowTitle(QApplication::translate("EntryPageClass", "EntryPage", 0, QApplication::UnicodeUTF8));
+        m_tipBuyLabel->setText(QApplication::translate("EntryPageClass", "Tip:", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -509,11 +603,21 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ff0000;\">*</span><span style=\" font-size:9pt;\"> \350\264\255\344\271\260\346\225\260\351\207\217:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'\345\256\213\344\275\223'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2';\">\347\211\251\345\223\201\345\223\201\347\211\214:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ff0000;\">*</span><span style=\" font-size:9pt;\"> \345\216\237\345\247\213\345\215\225\344\273\267:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ff0000;\">* </span><span style=\" font-size:9pt; color:#000000;\">\344\273\243\347\220\206\345\225\206</span><span style=\" font-size:9pt;\">:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -524,38 +628,26 @@ public:
          << QApplication::translate("EntryPageClass", "\345\256\271\351\207\217", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("EntryPageClass", "\345\223\210\345\223\210", 0, QApplication::UnicodeUTF8)
         );
-        label_12->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">\347\211\251\345\223\201\346\265\223\345\272\246:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'\345\256\213\344\275\223'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2';\">\347\211\251\345\223\201\345\223\201\347\211\214:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ff0000;\">* </span><span style=\" font-size:9pt; color:#000000;\">\344\273\243\347\220\206\345\225\206</span><span style=\" font-size:9pt;\">:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">\347\211\251\345\223\201\345\256\271\351\207\217:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+        label_12->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">\347\211\251\345\223\201\346\265\223\345\272\246:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'\345\256\213\344\275\223'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2';\">\350\264\255\344\271\260\345\244\207\346\263\250:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         label->setText(QString());
-        m_reset->setText(QApplication::translate("EntryPageClass", "Reset", 0, QApplication::UnicodeUTF8));
-        m_confirm->setText(QApplication::translate("EntryPageClass", "Confirm", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("EntryPageClass", "\350\264\255\344\271\260\344\277\241\346\201\257\345\275\225\345\205\245", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QString());
-        m_get_reset->setText(QApplication::translate("EntryPageClass", "Reset", 0, QApplication::UnicodeUTF8));
-        m_get_confirm->setText(QApplication::translate("EntryPageClass", "Confirm", 0, QApplication::UnicodeUTF8));
+        m_buy_reset->setText(QApplication::translate("EntryPageClass", "\351\207\215\347\275\256", 0, QApplication::UnicodeUTF8));
+        m_buy_confirm->setText(QApplication::translate("EntryPageClass", "\347\241\256\345\256\232", 0, QApplication::UnicodeUTF8));
+        tableWidget->setTabText(tableWidget->indexOf(tab), QApplication::translate("EntryPageClass", "\350\264\255\344\271\260\344\277\241\346\201\257\345\275\225\345\205\245", 0, QApplication::UnicodeUTF8));
+        m_tipGetLabel->setText(QApplication::translate("EntryPageClass", "Tip:", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("EntryPageClass", "\347\241\256\345\256\232\351\242\206\345\217\226\347\211\251\345\223\201\344\277\241\346\201\257:", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("EntryPageClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -593,7 +685,10 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'\345\256\213\344\275\223'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; color:#000000;\">\351\242\206\345\217\226\345\244\207\346\263\250</span><span style=\" font-family:'MS Shell Dlg 2';\">:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("EntryPageClass", "\351\242\206\345\217\226\344\277\241\346\201\257\345\275\225\345\205\245", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QString());
+        m_get_reset->setText(QApplication::translate("EntryPageClass", "\351\207\215\347\275\256", 0, QApplication::UnicodeUTF8));
+        m_get_confirm->setText(QApplication::translate("EntryPageClass", "\347\241\256\345\256\232", 0, QApplication::UnicodeUTF8));
+        tableWidget->setTabText(tableWidget->indexOf(tab_2), QApplication::translate("EntryPageClass", "\351\242\206\345\217\226\344\277\241\346\201\257\345\275\225\345\205\245", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

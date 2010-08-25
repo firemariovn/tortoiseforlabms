@@ -20,6 +20,7 @@ public:
 public slots:
 	void changePage(QListWidgetItem *current, QListWidgetItem *previous);
 	void showMySQLInfoDlg ();
+    void showAboutDlg ();
 
 private:
 	void createIcons();

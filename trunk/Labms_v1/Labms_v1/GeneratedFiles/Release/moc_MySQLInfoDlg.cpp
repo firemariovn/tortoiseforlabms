@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MySQLInfoDlg.h'
 **
-** Created: Mon Aug 23 23:46:02 2010
+** Created: Tue Aug 24 18:04:35 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!

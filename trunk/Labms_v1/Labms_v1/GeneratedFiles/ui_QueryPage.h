@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'QueryPage.ui'
 **
-** Created: Tue Aug 24 14:32:35 2010
+** Created: Wed Aug 25 17:55:48 2010
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -312,7 +312,7 @@ public:
 
         retranslateUi(QueryPageClass);
 
-        m_tabWidget->setCurrentIndex(1);
+        m_tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(QueryPageClass);

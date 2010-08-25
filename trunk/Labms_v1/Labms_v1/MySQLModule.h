@@ -12,9 +12,7 @@ class MySQLModule : public QObject
 	Q_OBJECT
 	friend class Singleton<MySQLModule>;
 public:
-	MySQLModule();
-	MySQLModule(QObject *parent);
-	~MySQLModule();
+
 
 	bool ConnectDB (QString username, QString password);
 	QSqlDatabase* GetDataBase (){return m_db;}
@@ -23,6 +21,11 @@ public:
 
 private:
 	QSqlDatabase* m_db;
+
+    MySQLModule();
+    MySQLModule(QObject *parent);
+    ~MySQLModule();
+
 	MySQLModule (const MySQLModule&);
 	MySQLModule& operator= (const MySQLModule&);
 };

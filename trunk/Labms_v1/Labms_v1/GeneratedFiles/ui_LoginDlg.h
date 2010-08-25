@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'LoginDlg.ui'
 **
-** Created: Mon Aug 23 20:25:34 2010
+** Created: Wed Aug 25 17:55:48 2010
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

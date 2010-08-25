@@ -15,16 +15,15 @@ public:
 	~EntryPage();
 
 public slots:
-	void entryConfirm ();
-	void entryClear ();
-
     void entryGetAgentSlot (const QString& str);
     void entryGetProNameSlot(const QString& str);
     void entryGetBuyTimeSlot ();
-    void entryGetConfirm ();
-    void entryGetClear();
 
-    
+    void entryBuyConfirm ();
+    void entryGetConfirm ();
+
+    void entryBuyReset();
+    void entryGetReset();    
 
 private:
     QStringListModel* m_data_strListModel;

@@ -1,11 +1,15 @@
 #include "Labms_v1.h"
 #include "LoginDlg.h"
 #include <QtGui/QApplication>
+#include "FileSystem.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	//Labms_v1 *pMainFrame;
+	
+
+    // 初始化文件系统结构
+    FileSystem& fs = SFileSystem::getInstance();
 
 	LoginDlg login;
 	login.show();

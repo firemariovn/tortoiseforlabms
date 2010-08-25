@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'LoginDlg.h'
 **
-** Created: Tue Aug 24 10:39:55 2010
+** Created: Tue Aug 24 18:04:36 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!

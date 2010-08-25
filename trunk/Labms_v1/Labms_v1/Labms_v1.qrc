@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="/images">
+    <file>Resources/about.ico</file>
+    <file>Resources/serviceInfo.ico</file>
     <file>Resources/tortoise_mainIcon.png</file>
     <file>Resources/南通医学院.bmp</file>
     <file>Resources/config.png</file>
