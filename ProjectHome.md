@@ -1,0 +1,1 @@
+It's a special lab manager system for media school of nantong university(http://yxy.ntu.edu.cn/）
